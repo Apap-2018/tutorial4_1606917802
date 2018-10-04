@@ -8,7 +8,7 @@
 		<h2>Hello!</h2>
 		
 		<h3>Tambah Dealer</h3>
-		<td><a th:href="@{/dealer/add}">Tambah</a>
+		<a th:href="@{/dealer/add}">Tambah</a>
 		
 		<h3>Cari Dealer berdasarkan Id</h3>
 		<form th:action="@{/dealer/view}" method="GET">
@@ -16,5 +16,6 @@
 			<input type="text" name="dealerId"/>
 			<button type="submit">Cari</button>
 		</form>
+		<a th:href="@{/dealer/viewall/}">Lihat Semua Dealer</a>
 	</body>
 </html>

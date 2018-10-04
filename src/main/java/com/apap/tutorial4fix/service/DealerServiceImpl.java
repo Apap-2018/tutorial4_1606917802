@@ -1,4 +1,6 @@
 package com.apap.tutorial4fix.service;
+
+import java.util.List;
 import java.util.Optional;
 
 import com.apap.tutorial4fix.model.DealerModel;
@@ -27,5 +29,19 @@ public class DealerServiceImpl implements DealerService{
 	@Override
 	public void deleteDealer (DealerModel dealer) {
 		dealerDb.delete(dealer);
+	}
+
+	@Override
+	public List<DealerModel> getAllDealer() {
+		// TODO Auto-generated method stub
+		return dealerDb.findAll();
+	}
+	
+	@Override
+	public void updateDealer(long id, Optional<DealerModel> newDealer) {
+		DealerModel dealerUpdated = dealerDb.getOne(id);
+		dealerUpdated.setAlamat(newDealer.get().getAlamat());
+		dealerUpdated.setNoTelp(newDealer.get().getNoTelp());
+		dealerDb.save(dealerUpdated);
 	}
 }

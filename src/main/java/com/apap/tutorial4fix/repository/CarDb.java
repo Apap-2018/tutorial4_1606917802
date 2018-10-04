@@ -8,7 +8,5 @@ import com.apap.tutorial4fix.model.CarModel;
 
 public interface CarDb extends JpaRepository<CarModel, Long> {
 	CarModel findByType(String type);
-	//CarModel selectById(Long id);
-	//CarModel deleteCar(Long id);
 	
 }

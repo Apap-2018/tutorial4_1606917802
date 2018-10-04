@@ -8,4 +8,6 @@ import com.apap.tutorial4fix.model.DealerModel;
 public interface CarService {
 	void addCar(CarModel car);
 	public void deleteById(Long id);
+	void updateCar(long id,CarModel car);
+	CarModel getCar(Long id);
 }

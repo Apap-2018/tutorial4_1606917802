@@ -32,11 +32,20 @@ public class CarController {
 	
 	@RequestMapping(value="/car/delete/{id}", method=RequestMethod.GET)
 	private String deleteCar(@PathVariable(value = "id") Long id, Model model) {
-			//String delete = carService.getDealerDetailByType(type);
-		
-		carService.deleteById(id);
-		//carService.deleteById(id);
-		//carService.deleteById(id);
+			carService.deleteById(id);
 			return "delete-car";
+	}
+	
+	@RequestMapping(value = "/car/update/{id}", method = RequestMethod.GET)
+	private String updateCar(@PathVariable(value = "id") long id, Model model) {
+		CarModel car = carService.getCar(id);
+		model.addAttribute("car",car);
+		return "update-car";
+	}
+	
+	@RequestMapping(value = "/car/update/{id}", method = RequestMethod.POST)
+	private String updateCarSubmit(@PathVariable(value = "id") long id, @ModelAttribute CarModel car) {
+		carService.updateCar(id, car);
+		return "update";
 	}
 }

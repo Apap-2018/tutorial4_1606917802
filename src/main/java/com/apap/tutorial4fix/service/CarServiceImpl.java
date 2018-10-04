@@ -26,5 +26,19 @@ public class CarServiceImpl implements CarService {
 		// TODO Auto-generated method stub
 		carDb.deleteById(id);
 	}
+	
+	@Override
+	public void updateCar(long id, CarModel newCar) {
+		CarModel carUpdated = carDb.getOne(id);
+		carUpdated.setBrand(newCar.getBrand());
+		carUpdated.setType(newCar.getType());
+		carUpdated.setPrice(newCar.getPrice());
+		carUpdated.setAmount(newCar.getAmount());
+		carDb.save(carUpdated);
+	}
+	
+	public CarModel getCar(Long id) {
+		return carDb.findById(id).get();
+	}
 }
 	
