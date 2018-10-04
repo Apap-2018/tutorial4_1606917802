@@ -4,7 +4,8 @@
 		<title>View All Dealer</title>
 	</head>
 	<body>
-		<h3>Informasi </h3>
+		<h3>INFORMASI DEALER</h3>
+		<br></br>
 		<div th:each="dealer : ${dealer}">
 			<h3 th:text= "'Alamat: ' + ${dealer.alamat}"></h3>
 			<h3 th:text="'Telepon: ' + ${dealer.noTelp}"></h3>

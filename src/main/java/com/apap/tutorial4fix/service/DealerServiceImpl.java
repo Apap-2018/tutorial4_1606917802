@@ -39,9 +39,9 @@ public class DealerServiceImpl implements DealerService{
 	
 	@Override
 	public void updateDealer(long id, Optional<DealerModel> newDealer) {
-		DealerModel dealerUpdated = dealerDb.getOne(id);
-		dealerUpdated.setAlamat(newDealer.get().getAlamat());
-		dealerUpdated.setNoTelp(newDealer.get().getNoTelp());
-		dealerDb.save(dealerUpdated);
+		DealerModel temp = dealerDb.getOne(id);
+		temp.setAlamat(newDealer.get().getAlamat());
+		temp.setNoTelp(newDealer.get().getNoTelp());
+		dealerDb.save(temp);
 	}
 }
